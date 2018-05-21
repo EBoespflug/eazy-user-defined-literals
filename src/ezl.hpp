@@ -6,7 +6,7 @@
 // UTIL.
 
 #include "ezl_char.hpp"
-#include "ezl_int.hpp"
+#include "ezl_num.hpp"
 #include "ezl_str.hpp"
 
 // ALIASES

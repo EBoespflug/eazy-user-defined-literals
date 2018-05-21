@@ -24,9 +24,10 @@ EZL_MAKE_CHAR16(constexpr, MyType<std::string>, test_char16)
 EZL_MAKE_CHAR32(constexpr, MyType<std::string>, test_char32)
 
 // INT
+EZL_MAKE_INT_CPL_D(constexpr, test_int, constexpr auto mask = 0xffffffffffllu; return mask ^ a;)
+EZL_MAKE_FLOAT_CPL_D(inline, test_float, if(a != 0) return 1 / a; else throw "Error";)
 
 EZL_MAKE_INT(constexpr, Integer, int)
-EZL_MAKE_INT_I(nullptr_t, int)
-
+EZL_MAKE_FLOAT(constexpr, Double, ld)
 
 #include "../src/ezl_undef.hpp"
