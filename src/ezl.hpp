@@ -5,10 +5,6 @@
 
 // UTIL.
 
-#define EZL_STRINGCAT_FINAL_(S, T) S ## T
-#define EZL_STRINGCAT(S, T) EZL_STRINGCAT_FINAL_(S, T)
-#define EZL_JOIN(S1, separator_, S2) EZL_STRINGCAT(EZL_STRINGCAT(S1, separator_), S2)
-
 #include "ezl_str.hpp"
 #include "ezl_int.hpp"
 
