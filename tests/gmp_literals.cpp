@@ -6,7 +6,7 @@
 
 int main()
 {
-    using namespace gmp_literals::mpz;
+    using namespace ezl::gmp_literals::mpz;
 
     auto v = {
         "00110010100010110101010101"_mpz2,

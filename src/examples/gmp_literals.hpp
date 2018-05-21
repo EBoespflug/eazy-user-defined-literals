@@ -8,9 +8,9 @@
 /* Macro callback. */
 #define CALL(base_) return mpz_class{str, base_}; \
 
-#define CREATE(base_) EZL_MAKE_STR_CPLVA(inline, EZL_STRINGCAT(mpz, base_), CALL, base_)
+#define CREATE(base_) EZL_MAKE_STR_CPL_VA(inline, EZL_STRINGCAT(mpz, base_), CALL, base_)
 
-namespace gmp_literals {
+namespace ezl::gmp_literals {
     inline namespace mpz {
         // note : should we use boost PP for ? implement custom macro loops ?
         CREATE(2)
