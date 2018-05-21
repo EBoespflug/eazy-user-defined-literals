@@ -11,7 +11,7 @@
 #define EZL_MAKE_RAW_CPL_D(specifiers_, name_, call_) \
     EZL_MAKE_GEN_CPL_D(specifiers_, name_, const char*, call_)
 
-#define EZL_MAKE_RAW(specifiers_, type_, name_) EZL_MAKE_RAW_CPL_D(specifiers_, name_, type_{a};)
+#define EZL_MAKE_RAW(specifiers_, type_, name_) EZL_MAKE_RAW_CPL_D(specifiers_, name_, return type_(a);)
 
 #define EZL_MAKE_RAW_I(type_, name_) EZL_MAKE_RAW(inline, type_, name_)
 #define EZL_MAKE_RAW_C(type_, name_) EZL_MAKE_RAW(constexpr, type_, name_)

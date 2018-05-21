@@ -15,7 +15,7 @@
 #define EZL_MAKE_CHAR_CPL_D(specifiers_, name_, call_) \
     EZL_MAKE_GEN_CPL_D(specifiers_, name_, char, call_)
 
-#define EZL_MAKE_CHAR(specifiers_, type_, name_) EZL_MAKE_CHAR_CPL_D(specifiers_, name_, type_{a};)
+#define EZL_MAKE_CHAR(specifiers_, type_, name_) EZL_MAKE_CHAR_CPL_D(specifiers_, name_, return type_(a);)
 
 #define EZL_MAKE_CHAR_I(type_, name_) EZL_MAKE_CHAR(inline, type_, name_)
 #define EZL_MAKE_CHAR_C(type_, name_) EZL_MAKE_CHAR(constexpr, type_, name_)

@@ -14,7 +14,7 @@
 #define EZL_MAKE_STR_CPL_D(specifiers_, name_, call_) \
     EZL_MAKE_GEN2_CPL_D(specifiers_, name_, const char*, std::size_t, call_)
 
-#define EZL_MAKE_STR(specifiers_, type_, name_) EZL_MAKE_STR_CPL_D(specifiers_, name_, type_{a};)
+#define EZL_MAKE_STR(specifiers_, type_, name_) EZL_MAKE_STR_CPL_D(specifiers_, name_, return type_(a);)
 
 #define EZL_MAKE_STR_I(type_, name_) EZL_MAKE_STR(inline, type_, name_)
 #define EZL_MAKE_STR_C(type_, name_) EZL_MAKE_STR(constexpr, type_, name_)
