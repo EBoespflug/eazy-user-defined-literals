@@ -5,8 +5,10 @@
 
 // UTIL.
 
-#include "ezl_char.hpp"
+#include "ezl_util.hpp"
+#include "ezl_raw.hpp"
 #include "ezl_num.hpp"
+#include "ezl_char.hpp"
 #include "ezl_str.hpp"
 
 // ALIASES

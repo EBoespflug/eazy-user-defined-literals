@@ -11,5 +11,3 @@
 #undef EZL_MAKE_GEN2_CPL_VA
 #undef EZL_MAKE_GEN2_CPL
 #undef EZL_MAKE_GEN2_CPL_D
-
-#undef

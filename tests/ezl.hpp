@@ -23,11 +23,15 @@ EZL_MAKE_WCHAR(constexpr, MyType<std::string>, test_wchar)
 EZL_MAKE_CHAR16(constexpr, MyType<std::string>, test_char16)
 EZL_MAKE_CHAR32(constexpr, MyType<std::string>, test_char32)
 
-// INT
+// NUMS
 EZL_MAKE_INT_CPL_D(constexpr, test_int, constexpr auto mask = 0xffffffffffllu; return mask ^ a;)
 EZL_MAKE_FLOAT_CPL_D(inline, test_float, if(a != 0) return 1 / a; else throw "Error";)
 
 EZL_MAKE_INT(constexpr, Integer, int)
 EZL_MAKE_FLOAT(constexpr, Double, ld)
+
+// RAW
+EZL_MAKE_RAW_CPL_D(constexpr, test_raw, return std::string(a);)
+EZL_MAKE_RAW(inline, Test::Test<Test>::Test, test_raw)
 
 #include "../src/ezl_undef.hpp"
