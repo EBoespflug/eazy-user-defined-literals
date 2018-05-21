@@ -5,8 +5,9 @@
 
 // UTIL.
 
-#include "ezl_str.hpp"
+#include "ezl_char.hpp"
 #include "ezl_int.hpp"
+#include "ezl_str.hpp"
 
 // ALIASES
 #define EZL_MAKE(type_, name_) EZL_MAKE_STR_I(type_, name_)

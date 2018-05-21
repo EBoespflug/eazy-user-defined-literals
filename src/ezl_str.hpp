@@ -2,7 +2,6 @@
 #define EAZY_USERDEFINED_LITERALS_STR
 
 #include "ezl_util.hpp"
-
 #include <cstddef>
 
 // (const char*, std::size_t)
