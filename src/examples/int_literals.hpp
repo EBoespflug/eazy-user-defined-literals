@@ -1,5 +1,5 @@
-#ifndef EZL_GMP_LITERALS
-#define EZL_GMP_LITERALS
+#ifndef EZL_INT_LITERALS
+#define EZL_INT_LITERALS
 
 #include "../ezl.hpp"
 
