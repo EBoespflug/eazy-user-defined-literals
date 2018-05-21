@@ -7,37 +7,37 @@
 
 #define EZL_MAKE_GEN_CPL_VA(specifiers_, name_, typeA_, call_, ...) \
     specifiers_ auto operator "" \
-    EZL_STRINGCAT(_, name_)([[maybe_unused]] typeA_ a) { \
+    EZL_STRINGCAT(_, name_)([[maybe_unused]] typeA_ a) { \
         call_(__VA_ARGS__) \
     }
 
 #define EZL_MAKE_GEN_CPL(specifiers_, name_, typeA_, call_) \
     specifiers_ auto operator "" \
-    EZL_STRINGCAT(_, name_)([[maybe_unused]] typeA_ a) { \
+    EZL_STRINGCAT(_, name_)([[maybe_unused]] typeA_ a) { \
       call_() \
     }
 
 #define EZL_MAKE_GEN_CPL_D(specifiers_, name_, typeA_, call_) \
     specifiers_ auto operator "" \
-    EZL_STRINGCAT(_, name_)([[maybe_unused]] typeA_ a) { \
+    EZL_STRINGCAT(_, name_)([[maybe_unused]] typeA_ a) { \
        call_ \
     }
 
 #define EZL_MAKE_GEN2_CPL_VA(specifiers_, name_, typeA_, typeB_, call_, ...) \
     specifiers_ auto operator "" \
-    EZL_STRINGCAT(_, name_)([[maybe_unused]] typeA_ a, [[maybe_unused]] typeB_ b) { \
+    EZL_STRINGCAT(_, name_)([[maybe_unused]] typeA_ a, [[maybe_unused]] typeB_ b) { \
         call_(__VA_ARGS__) \
     }
 
 #define EZL_MAKE_GEN2_CPL(specifiers_, name_, typeA_, typeB_, call_) \
     specifiers_ auto operator "" \
-    EZL_STRINGCAT(_, name_)([[maybe_unused]] typeA_ a, [[maybe_unused]] typeB_ b) { \
+    EZL_STRINGCAT(_, name_)([[maybe_unused]] typeA_ a, [[maybe_unused]] typeB_ b) { \
       call_() \
     }
 
 #define EZL_MAKE_GEN2_CPL_D(specifiers_, name_, typeA_, typeB_, call_) \
     specifiers_ auto operator "" \
-    EZL_STRINGCAT(_, name_)([[maybe_unused]] typeA_ a, [[maybe_unused]] typeB_ b) { \
+    EZL_STRINGCAT(_, name_)([[maybe_unused]] typeA_ a, [[maybe_unused]] typeB_ b) { \
        call_ \
     }
 

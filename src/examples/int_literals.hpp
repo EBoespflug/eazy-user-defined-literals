@@ -6,7 +6,7 @@
 
 namespace ezl::int_literals {
     EZL_MAKE_INT_C(short, s)
-    EZL_MAKE_INT_C(unsigned short, us)
+    EZL_MAKE_INT_C((unsigned short), us)
 
     EZL_MAKE_INT_C(int8_t, i8)
     EZL_MAKE_INT_C(int16_t, i16)
@@ -26,23 +26,23 @@ namespace ezl::int_literals {
     EZL_MAKE_INT_C(intptr_t, iptr)
     EZL_MAKE_INT_C(intmax_t, imax)
 
-    EZL_MAKE_INT_C(uint8_t, ui8)
-    EZL_MAKE_INT_C(uint16_t, ui16)
-    EZL_MAKE_INT_C(uint32_t, ui32)
-    EZL_MAKE_INT_C(uint64_t, ui64)
+    EZL_MAKE_INT_C(uint8_t, u8)
+    EZL_MAKE_INT_C(uint16_t, u16)
+    EZL_MAKE_INT_C(uint32_t, u32)
+    EZL_MAKE_INT_C(uint64_t, u64)
 
-    EZL_MAKE_INT_C(uint_fast8_t, uif8)
-    EZL_MAKE_INT_C(uint_fast16_t, uif16)
-    EZL_MAKE_INT_C(uint_fast32_t, uif32)
-    EZL_MAKE_INT_C(uint_fast64_t, uif64)
+    EZL_MAKE_INT_C(uint_fast8_t, uf8)
+    EZL_MAKE_INT_C(uint_fast16_t, uf16)
+    EZL_MAKE_INT_C(uint_fast32_t, uf32)
+    EZL_MAKE_INT_C(uint_fast64_t, uf64)
 
-    EZL_MAKE_INT_C(uint_least8_t, uil8)
-    EZL_MAKE_INT_C(uint_least16_t, uil16)
-    EZL_MAKE_INT_C(uint_least32_t, uil32)
-    EZL_MAKE_INT_C(uint_least64_t, uil64)
+    EZL_MAKE_INT_C(uint_least8_t, ul8)
+    EZL_MAKE_INT_C(uint_least16_t, ul16)
+    EZL_MAKE_INT_C(uint_least32_t, ul32)
+    EZL_MAKE_INT_C(uint_least64_t, ul64)
 
-    EZL_MAKE_INT_C(uintptr_t, uiptr)
-    EZL_MAKE_INT_C(uintmax_t, uimax)
+    EZL_MAKE_INT_C(uintptr_t, uptr)
+    EZL_MAKE_INT_C(uintmax_t, umax)
 }
 
 #include "../ezl_undef.hpp"
