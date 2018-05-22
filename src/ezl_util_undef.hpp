@@ -4,10 +4,8 @@
 #undef EZL_STRINGCAT
 #undef EZL_JOIN
 
-#undef EZL_MAKE_GEN_CPL_VA
 #undef EZL_MAKE_GEN_CPL
 #undef EZL_MAKE_GEN_CPL_D
 
-#undef EZL_MAKE_GEN2_CPL_VA
 #undef EZL_MAKE_GEN2_CPL
 #undef EZL_MAKE_GEN2_CPL_D

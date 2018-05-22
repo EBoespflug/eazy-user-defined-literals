@@ -2,11 +2,8 @@
 #define EAZY_USERDEFINED_LITERALS_NUM
 
 // unsigned long long int
-#define EZL_MAKE_INT_CPL_VA(specifiers_, name_, call_, ...) \
-    EZL_MAKE_GEN_CPL_VA(specifiers_, name_, unsigned long long int, call_, __VA_ARGS__)
-
-#define EZL_MAKE_INT_CPL(specifiers_, name_, call_) \
-    EZL_MAKE_GEN_CPL(specifiers_, name_, unsigned long long int, call_)
+#define EZL_MAKE_INT_CPL(specifiers_, name_, call_, ...) \
+    EZL_MAKE_GEN_CPL(specifiers_, name_, unsigned long long int, call_, __VA_ARGS__)
 
 #define EZL_MAKE_INT_CPL_D(specifiers_, name_, call_) \
     EZL_MAKE_GEN_CPL_D(specifiers_, name_, unsigned long long int, call_)

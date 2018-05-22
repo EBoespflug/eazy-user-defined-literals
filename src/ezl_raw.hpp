@@ -2,11 +2,8 @@
 #define EAZY_USERDEFINED_LITERALS_RAW
 
 // const char*
-#define EZL_MAKE_RAW_CPL_VA(specifiers_, name_, call_, ...) \
-    EZL_MAKE_GEN_CPL_VA(specifiers_, name_, const char*, call_, __VA_ARGS__)
-
-#define EZL_MAKE_RAW_CPL(specifiers_, name_, call_) \
-    EZL_MAKE_GEN_CPL(specifiers_, name_, const char*, call_)
+#define EZL_MAKE_RAW_CPL(specifiers_, name_, call_, ...) \
+    EZL_MAKE_GEN_CPL(specifiers_, name_, const char*, call_, __VA_ARGS__)
 
 #define EZL_MAKE_RAW_CPL_D(specifiers_, name_, call_) \
     EZL_MAKE_GEN_CPL_D(specifiers_, name_, const char*, call_)

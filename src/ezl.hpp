@@ -3,8 +3,6 @@
 
 #include <cstddef>
 
-// UTIL.
-
 #include "ezl_util.hpp"
 #include "ezl_raw.hpp"
 #include "ezl_num.hpp"
