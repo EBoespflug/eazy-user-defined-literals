@@ -8,7 +8,9 @@ int main()
 {
     using namespace ezl::gmp_literals::mpz;
 
-    auto v = {
+    mpz_class m = "0010101"_mpz2;
+
+    /*auto v = {
         "00110010100010110101010101"_mpz2,
         "02221012110221102001012121"_mpz3,
         "ffa02bf24eaf261fa7d544938c"_mpz16,
@@ -17,5 +19,5 @@ int main()
     };
 
     for(auto& z : v)
-        std::cout << z << '\n';
+        std::cout << z << '\n';*/
 }
