@@ -6,7 +6,7 @@
 #include <gmpxx.h>
 
 /* Macro callback. */
-#define CALL(base_) return mpz_class{str, base_}; \
+#define CALL(base_) return mpz_class{a, base_}; \
 
 #define CREATE(base_) EZL_MAKE_STR_CPL(inline, EZL_STRINGCAT(mpz, base_), CALL, base_)
 
