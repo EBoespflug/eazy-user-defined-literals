@@ -2,6 +2,9 @@
  * ezl_util_undef.hpp
  * Etienne Boespflug - 2018
  *
+ * This file contains preprocessor undef directives
+ * corresponding to the ezl_util.hpp header.
+ *
  * This software has no license, feel free to use,
  * modify and distribute.
  *
@@ -16,7 +19,7 @@
  * THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
- #undef EAZY_USERDEFINED_LITERALS_UTIL
+#undef EAZY_USERDEFINED_LITERALS_UTIL
 
 #undef EZL_STRINGCAT_FINAL_
 #undef EZL_STRINGCAT

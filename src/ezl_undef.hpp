@@ -2,6 +2,9 @@
  * ezl_undef.hpp
  * Etienne Boespflug - 2018
  *
+ * This file contains preprocessor undef directives
+ * for all macros of EZL library.
+ *
  * This software has no license, feel free to use,
  * modify and distribute.
  *

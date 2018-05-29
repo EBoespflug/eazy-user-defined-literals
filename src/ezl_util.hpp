@@ -4,7 +4,7 @@
  *
  * This file contains the root function macros for
  * creating user-defined literals (EZL_MAKE_GEN*).
- * 
+ *
  * This software has no license, feel free to use,
  * modify and distribute.
  *
@@ -42,14 +42,14 @@
  * Creates an user-defined literal with the specifiers_, the
  * name_ (prefixed with an underscore) and body instructions
  * (call_, which is expanded with the variadic arguments).
- * This function macro use typeA_ as the single argument of
- * the user-defined literal operator.
+ *
+ * The argument of the UDL operator is a (of type typeA_).
  *
  * @param specifiers_   The specifiers of the UDL operator.
  * @param name_         The name of the literal suffix (an
  *      underscore prefix is added to the name).
  * @param typeA_        The type of the first argument of
- *      the UDL operator.
+ *      the UDL operator : a.
  * @param call_         The function macro to be expanded
  *      with the variadic argument.
  *
@@ -65,14 +65,14 @@
  * Creates an user-defined literal with the specifiers_, the
  * name_ (prefixed with an underscore) and body instructions
  * (body_, which is a direct preprocessor replacement).
- * This function macro use typeA_ as the single argument of
- * the user-defined literal operator.
+ *
+ * The argument of the UDL operator is a (of type typeA_).
  *
  * @param specifiers_   The specifiers of the UDL operator.
  * @param name_         The name of the literal suffix (an
  *      underscore prefix is added to the name).
  * @param typeA_        The type of the first argument of
- *      the UDL operator.
+ *      the UDL operator : a.
  * @param body_         The macro constituting the body
  *      argument.
  *
@@ -88,16 +88,17 @@
  * Creates an user-defined literal with the specifiers_, the
  * name_ (prefixed with an underscore) and body instructions
  * (call_, which is expanded with the variadic arguments).
- * This function macro use typeA_ and typeB_ as the arguments
- * of the user-defined literal operator.
+ *
+ * The arguments of the UDL operator are a (of type typeA_)
+ * and b (of type typeB_).
  *
  * @param specifiers_   The specifiers of the UDL operator.
  * @param name_         The name of the literal suffix (an
  *      underscore prefix is added to the name).
  * @param typeA_        The type of the first argument of
- *      the UDL operator.
+ *      the UDL operator : a.
  * @param typeB_        The type of the second argument of
- *      the UDL operator.
+ *      the UDL operator : b.
  * @param call_         The function macro to be expanded
  *      with the variadic argument.
  *
@@ -115,13 +116,16 @@
  * This function macro use typeA_ and typeB_ as the arguments
  * of the user-defined literal operator.
  *
+ * The arguments of the UDL operator are a (of type typeA_)
+ * and b (of type typeB_).
+ *
  * @param specifiers_   The specifiers of the UDL operator.
  * @param name_         The name of the literal suffix (an
  *      underscore prefix is added to the name).
  * @param typeA_        The type of the first argument of
- *      the UDL operator.
+ *      the UDL operator : a.
  * @param typeB_        The type of the second argument of
- *      the UDL operator.
+ *      the UDL operator : b.
  * @param body_         The macro constituting the body
  *      argument.
  *
