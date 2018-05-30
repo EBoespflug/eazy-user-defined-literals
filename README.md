@@ -1,10 +1,10 @@
 # eazy-user-defined-literals
 
-Provides multiple user-defined literals and preprocessor macro tools for easy creation of straightforward user-defined literals.
-
 ## Overview
 
-TODO()
+EaZy user-defined Literals (EZL), is a proprocessor macro library providing tools to easily generate User-Defined Literals (UDL).
+
+The library also provides (usable) examples of user-defined literals generation.
 
 ## Installation
 
@@ -12,12 +12,34 @@ This library is header-only. To use it, simply include needed header files in yo
 
 The library is constituted in two main parts:
  - The EZL library: providing function macro to generate user-defined literals.
- - The EZL examples (situated in the src/examples subfolder): including an usage example of the EZL library. The header files thus provides user-defined literals for various domains (int literals, gmp literals, Qt string literals) and can be used in a project. Between, the inclusion of an example header file require the presence of the EZL library headers to compile.
-
+ - The EZL examples (situated in the src/examples subfolder): including an usage example of the EZL library. The header files thus provides user-defined literals for various domains (int literals, gmp literals, Qt string literals) and can be used in a project. Between, the inclusion of an example header file require the presence of the EZL library headers to compile. Please note that some examples  may require additionnal library (such as gmp for gmp_literals.hpp).
 
 ## Usage
 
-TODO()
+### Quick start
+
+The following code show the generation and the usage of an UDL "_str" in which the string literal is converted into ```std::string``` :
+
+```c++
+#include "../src/ezl.hpp"
+
+#include <iostream>
+#include <string>
+
+EZL_MAKE(std::string, str)
+
+int main()
+{
+    auto s = "my_string"_str;
+    std::cout << s.size() << ": " << s << std::endl;
+}
+```
+
+Here, the macro ```EZL_MAKE(type_, name_)``` is an alias on ```EZL_MAKE_STR_I(type_, name_)```, which create an UDL with ```inline``` specifier.
+
+```name_``` is prefixed with an underscore and the literal is cast in ```type_```.
+
+### Core macros
 
 ## Contributors
 
