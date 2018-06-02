@@ -2,6 +2,9 @@
  * ezl_str_undef.hpp
  * Etienne Boespflug - 2018
  *
+ * This file contains preprocessor undef directives
+ * corresponding to the ezl_str.hpp header.
+ *
  * This software has no license, feel free to use,
  * modify and distribute.
  *

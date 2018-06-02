@@ -162,7 +162,7 @@
  *
  * @see EZL_MAKE_WCHAR_CPL_D
  */
-#define EZL_MAKE_WCHAR(specifiers_, type_, name_) EZL_MAKE_WCHAR_CPL_D(specifiers_, name_, type_{a};)
+#define EZL_MAKE_WCHAR(specifiers_, type_, name_) EZL_MAKE_WCHAR_CPL_D(specifiers_, name_, type_(a);)
 
 /**
  * Creates an inline wide-character user-defined literal with the
@@ -251,7 +251,7 @@
  *
  * @see EZL_MAKE_CHAR16_CPL_D
  */
-#define EZL_MAKE_CHAR16(specifiers_, type_, name_) EZL_MAKE_CHAR16_CPL_D(specifiers_, name_, type_{a};)
+#define EZL_MAKE_CHAR16(specifiers_, type_, name_) EZL_MAKE_CHAR16_CPL_D(specifiers_, name_, type_(a);)
 
 /**
  * Creates an inline char16_t character user-defined literal with the
@@ -340,7 +340,7 @@
  *
  * @see EZL_MAKE_CHAR32_CPL_D
  */
-#define EZL_MAKE_CHAR32(specifiers_, type_, name_) EZL_MAKE_CHAR32_CPL_D(specifiers_, name_, type_{a};)
+#define EZL_MAKE_CHAR32(specifiers_, type_, name_) EZL_MAKE_CHAR32_CPL_D(specifiers_, name_, type_(a);)
 
 /**
  * Creates an inline char32_t character user-defined literal with the
