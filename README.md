@@ -50,24 +50,45 @@ The header *ezl_undef.hpp* contains ```#undef``` directives for all EZL preproce
 
 ### Regular macros
 
+#### The literal types
+
 C++ offer 11 user-defined literal overload for each overloadable literal type. EZL covers each type and includes the type in the function name (due to the lack of macro overloading) :
 
  - Number literals :
-    - EZL_MAKE_INT\* : Integer literals ```(unsigned long long)```.
-    - EZL_MAKE_FLOAT\* : Floating-point literals ```(long double)```.
-    - EZL_MAKE_RAW\* : Raw string literals (fallback for number literals) ```(const char*)```.
+    - EZL_MAKE_INT\* ```(unsigned long long)```: Integer literals .
+    - EZL_MAKE_FLOAT\* ```(long double)```: Floating-point literals .
+    - EZL_MAKE_RAW\* ```(const char*)```: Raw string literals (fallback for number literals).
  - Character literals :
-  - EZL_MAKE_CHAR : character literals ```(char)```.
-  - EZL_MAKE_CHAR : character literals ```(char)```
-  - EZL_MAKE_CHAR : character literals ```(char)```.
-  - EZL_MAKE_CHAR : character literals ```(char)```.
+  - EZL_MAKE_CHAR\* ```(char)```: character literals .
+  - EZL_MAKE_WCHAR\* ```(wchar_t)```: wide-character literals
+  - EZL_MAKE_CHAR16\* ```(char16_t)```: char16_t character literals .
+  - EZL_MAKE_CHAR32\* ```(char32_t)```: char32_t character literals.
  - String literals :
-  - EZL_MAKE_STR\* : ```(const char*, std::size_t)```.
-  - EZL_MAKE_WSTR\* : corresponding to ```(const char*, std::size_t)```.
-  - EZL_MAKE_STR16\* : corresponding to ```(const char*, std::size_t)```.
-  - EZL_MAKE_STR32\* : corresponding to ```(const char*, std::size_t)```.
+  - EZL_MAKE_STR\* ```(const char*, std::size_t)```: string literal.
+  - EZL_MAKE_WSTR\* ```(const wchar_t*, std::size_t)```: wide-string literal.
+  - EZL_MAKE_STR16\*```(const char16_t*, std::size_t)```: char16_t string literal.
+  - EZL_MAKE_STR32\*  ```(const char32_t*, std::size_t)```: char32_t string literal.
 
+For each ```TYPE``` of those 11 types, 5 function macros are provided, described in the next sections.
 
+#### Basic conversion UDLs
+
+```EZL_MAKE_TYPE(specifiers_, type_, name_)``` generates an UDL which convert the literal value to the specified ```type_```, using a function C-style cast. ```name_``` is prepended with an underscore ```_```.
+
+The ```specifier_``` correspond to the different UDL specifier allowed : ```inline```, ```constexpr```. Ending the specifiers list with ```const``` will make the return value ```const```.
+
+Here is an example of expansion of the macro ```EZL_MAKE_CHAR32(constexpr, myChar32String, s32)``` (with indentation added for readability concerns):
+
+```c++
+constexpr auto operator "" _s32([[maybe_unused]] char32_t a)
+{
+    myChar32String{a};
+}
+```
+
+In addition, two helper function macros are provided :
+ - ```ÈZL_MAKE_TYPE_I``` which correspond to ```EZL_MAKE_TYPE``` with ```inline``` specifier.
+ - ```ÈZL_MAKE_TYPE_C``` which correspond to ```EZL_MAKE_TYPE``` with ```constexpr``` specifier.
 
 ### Core macros
 
