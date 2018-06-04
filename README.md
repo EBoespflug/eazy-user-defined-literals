@@ -162,7 +162,7 @@ int main()
 
 Possible output : ```17 20 3 8 21 24 17 20 22 21```.
 
-Use ```EZL_MAKE_TYPE_CPL``` to generate several UDL following the same template (for instance the [src/examples/gmp_literals.hpp](GMP literals example)) and ```EZL_MAKE_TYPE_CPL_D``` when you don't need to specify any argument and avoid creating a macro only for the ```call_``` argument.
+Use ```EZL_MAKE_TYPE_CPL``` to generate several UDL following the same template (for instance the [GMP literals example](src/examples/gmp_literals.hpp)) and ```EZL_MAKE_TYPE_CPL_D``` when you don't need to specify any argument and avoid creating a macro only for the ```call_``` argument.
 
 
 
