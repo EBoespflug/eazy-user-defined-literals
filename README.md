@@ -94,9 +94,77 @@ In addition, two helper function macros are provided :
 
 #### Body replacement macros
 
-For more complexes UDL, EZL provides the ```EZL_MAKE_TYPE_CPL(specifiers_, name_, call_, ...)``` function macros. As for ```EZL_MAKE_TYPE```, ```specifiers_``` correspond to the UDL function specifiers and ```name_``` to the name of the UDL (with an extra leading ```_``` added).
+For more complexes UDL, EZL provides the ```EZL_MAKE_TYPE_CPL(specifiers_, name_, call_, ...)``` function macro. As for ```EZL_MAKE_TYPE```, ```specifiers_``` correspond to the UDL function specifiers and ```name_``` to the name of the UDL (with an extra leading ```_``` added).
 
 ```call_``` is an argument function macro which will be expanded with the variadic argument of the macro in place of the UDL body.
+
+Here is a sample of an UDL reversing the string literal and returning the constructed ```std::string``` appended with " !" :
+
+```c++
+#include "../src/ezl.hpp"
+
+#include <iostream>
+#include <string>
+#include <algorithm>
+
+#define REVERSE_STRING(suffix_) \
+    std::string s{ a }; \
+    std::reverse(std::begin(s), std::end(s)); \
+    return s + suffix_; \
+
+EZL_MAKE_STR_CPL(inline, rev, REVERSE_STRING, " !")
+
+int main()
+{
+    auto s = "emocleW"_rev;
+    std::cout << s << std::endl;
+}
+```
+
+Print : ```Welcome !```.
+
+In the previous example, the macro ```REVERSE_STRING``` is passed as the ```call_``` argument of the ```EZL_MAKE_STR_CPL``` macro. The variadic arguments contains only the appended string " !" and this argument is forwarded to the ```call_``` macro inside the body of the UDL.
+
+The expansion of the call of the function macro with indentation added is :
+
+```c++
+inline auto operator "" _rev([[maybe_unused]] const char* a, [[maybe_unused]] std::size_t b)
+{
+    std::string s{ a };
+    std::reverse(std::begin(s), std::end(s));
+    return s + " !";
+}
+```
+
+As you can see, the UDL argument (here ```const char*``` and ```std::size_t```) are nammed respectively ```a``` and ```b``` in case of two argument UDL (only one argument ```a``` for single argument UDL). The ```call_``` macro can use thoses argument for the UDL body computation.
+
+The ```EZL_MAKE_TYPE_CPL``` require the ```call_``` argument to be a function macro (i.e. that can be expanded though a call). The function macro ```EZL_MAKE_TYPE_CPL_D(specifiers_, name_, body_)``` use the same scheme but ```body_``` is simply a macro wich is replaced in place of the UDL body :
+
+```c++
+#include "../src/ezl.hpp"
+#include <iostream>
+#include <random>
+
+EZL_MAKE_INT_CPL_D(inline, rand, \
+    static std::random_device rd; \
+    static std::mt19937 gen(rd()); \
+    std::uniform_int_distribution<> dist(0, a);
+
+    return dist(gen);
+)
+
+int main()
+{
+    for(auto i{ 0u }; i < 10; ++i)
+        std::cout << 25_rand << ' ';
+}
+```
+
+Possible output : ```17 20 3 8 21 24 17 20 22 21```.
+
+Use ```EZL_MAKE_TYPE_CPL``` to generate several UDL following the same template (for instance the [src/examples/gmp_literals.hpp](GMP literals example)) and ```EZL_MAKE_TYPE_CPL_D``` when you don't need to specify any argument and avoid creating a macro only for the ```call_``` argument.
+
+
 
 ### Core macros
 
