@@ -61,15 +61,15 @@ C++ offer 11 user-defined literal overload for each overloadable literal type. E
     - EZL_MAKE_FLOAT\* ```(long double)```: Floating-point literals .
     - EZL_MAKE_RAW\* ```(const char*)```: Raw string literals (fallback for number literals).
  - Character literals :
-  - EZL_MAKE_CHAR\* ```(char)```: character literals .
-  - EZL_MAKE_WCHAR\* ```(wchar_t)```: wide-character literals
-  - EZL_MAKE_CHAR16\* ```(char16_t)```: char16_t character literals .
-  - EZL_MAKE_CHAR32\* ```(char32_t)```: char32_t character literals.
+    - EZL_MAKE_CHAR\* ```(char)```: character literals .
+    - EZL_MAKE_WCHAR\* ```(wchar_t)```: wide-character literals
+    - EZL_MAKE_CHAR16\* ```(char16_t)```: char16_t character literals .
+    - EZL_MAKE_CHAR32\* ```(char32_t)```: char32_t character literals.
  - String literals :
-  - EZL_MAKE_STR\* ```(const char*, std::size_t)```: string literal.
-  - EZL_MAKE_WSTR\* ```(const wchar_t*, std::size_t)```: wide-string literal.
-  - EZL_MAKE_STR16\*```(const char16_t*, std::size_t)```: char16_t string literal.
-  - EZL_MAKE_STR32\*  ```(const char32_t*, std::size_t)```: char32_t string literal.
+    - EZL_MAKE_STR\* ```(const char*, std::size_t)```: string literal.
+    - EZL_MAKE_WSTR\* ```(const wchar_t*, std::size_t)```: wide-string literal.
+    - EZL_MAKE_STR16\*```(const char16_t*, std::size_t)```: char16_t string literal.
+    - EZL_MAKE_STR32\*  ```(const char32_t*, std::size_t)```: char32_t string literal.
 
 For each ```TYPE``` of those 11 types, 5 function macros are provided, described in the next sections.
 
@@ -89,8 +89,8 @@ constexpr auto operator "" _s32([[maybe_unused]] char32_t a)
 ```
 
 In addition, two helper function macros are provided :
- - ```ÈZL_MAKE_TYPE_I``` which correspond to ```EZL_MAKE_TYPE``` with ```inline``` specifier.
- - ```ÈZL_MAKE_TYPE_C``` which correspond to ```EZL_MAKE_TYPE``` with ```constexpr``` specifier.
+ - ```EZL_MAKE_TYPE_I``` which correspond to ```EZL_MAKE_TYPE``` with ```inline``` specifier.
+ - ```EZL_MAKE_TYPE_C``` which correspond to ```EZL_MAKE_TYPE``` with ```constexpr``` specifier.
 
 #### Body replacement macros
 
@@ -136,7 +136,7 @@ inline auto operator "" _rev([[maybe_unused]] const char* a, [[maybe_unused]] st
 }
 ```
 
-As you can see, the UDL argument (here ```const char*``` and ```std::size_t```) are nammed respectively ```a``` and ```b``` in case of two argument UDL (only one argument ```a``` for single argument UDL). The ```call_``` macro can use thoses argument for the UDL body computation.
+As you can see, the UDL argument (here ```const char*``` and ```std::size_t```) are nammed respectively ```a``` and ```b``` in case of two argument UDL (only one argument ```a``` for single argument UDL). The ```call_``` macro can use thoses argument for the UDL body.
 
 The ```EZL_MAKE_TYPE_CPL``` require the ```call_``` argument to be a function macro (i.e. that can be expanded though a call). The function macro ```EZL_MAKE_TYPE_CPL_D(specifiers_, name_, body_)``` use the same scheme but ```body_``` is simply a macro wich is replaced in place of the UDL body :
 
@@ -162,7 +162,7 @@ int main()
 
 Possible output : ```17 20 3 8 21 24 17 20 22 21```.
 
-Use ```EZL_MAKE_TYPE_CPL``` to generate several UDL following the same template (for instance the [GMP literals example](src/examples/gmp_literals.hpp)) and ```EZL_MAKE_TYPE_CPL_D``` when you don't need to specify any argument and avoid creating a macro only for the ```call_``` argument.
+Use ```EZL_MAKE_TYPE_CPL``` to generate several UDLs following the same template (as in the [GMP literals example](src/examples/gmp_literals.hpp)) and ```EZL_MAKE_TYPE_CPL_D``` when you don't need to specify any argument and want to avoid creating a macro only for the ```call_``` argument.
 
 
 
