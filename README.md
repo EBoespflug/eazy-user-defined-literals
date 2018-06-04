@@ -71,7 +71,7 @@ C++ offer 11 user-defined literal overload for each overloadable literal type. E
 
 For each ```TYPE``` of those 11 types, 5 function macros are provided, described in the next sections.
 
-#### Basic conversion UDLs
+#### Basic conversion UDLs macros
 
 ```EZL_MAKE_TYPE(specifiers_, type_, name_)``` generates an UDL which convert the literal value to the specified ```type_```, using a function C-style cast. ```name_``` is prepended with an underscore ```_```.
 
@@ -89,6 +89,12 @@ constexpr auto operator "" _s32([[maybe_unused]] char32_t a)
 In addition, two helper function macros are provided :
  - ```ÈZL_MAKE_TYPE_I``` which correspond to ```EZL_MAKE_TYPE``` with ```inline``` specifier.
  - ```ÈZL_MAKE_TYPE_C``` which correspond to ```EZL_MAKE_TYPE``` with ```constexpr``` specifier.
+
+#### Body replacement macros
+
+For more complexes UDL, EZL provides the ```EZL_MAKE_TYPE_CPL(specifiers_, name_, call_, ...)``` function macros. As for ```EZL_MAKE_TYPE```, ```specifiers_``` correspond to the UDL function specifiers and ```name_``` to the name of the UDL (with an extra leading ```_``` added).
+
+```call_``` is an argument function macro which will be expanded with the variadic argument of the macro in place of the UDL body.
 
 ### Core macros
 
