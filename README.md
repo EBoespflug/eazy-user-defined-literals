@@ -164,9 +164,11 @@ Possible output : ```17 20 3 8 21 24 17 20 22 21```.
 
 Use ```EZL_MAKE_TYPE_CPL``` to generate several UDLs following the same template (as in the [GMP literals example](src/examples/gmp_literals.hpp)) and ```EZL_MAKE_TYPE_CPL_D``` when you don't need to specify any argument and want to avoid creating a macro only for the ```call_``` argument.
 
+### Utility macros
 
+All type specific macros are generated from the four ```EZL_MAKE_GEN*``` function macros that should not have many usage from user code, but can still be used.
 
-### Core macros
+```EZL_STRINGCAT``` and ```EZL_JOIN``` are utility macros for preprocessor tokens concatenation, which can be used to generate UDL names (as in the [GMP literals example](src/examples/gmp_literals.hpp)).    
 
 ## Contributors
 

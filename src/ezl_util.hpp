@@ -102,7 +102,7 @@
  * @param call_         The function macro to be expanded
  *      with the variadic argument.
  *
- * @see EZL_MAKE_GEN_CPL2_D
+ * @see EZL_MAKE_GEN2_CPL_D
  */
 #define EZL_MAKE_GEN2_CPL(specifiers_, name_, typeA_, typeB_, call_, ...) \
     specifiers_ auto operator "" \
