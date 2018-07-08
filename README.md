@@ -12,7 +12,7 @@ This library is header-only. To use it, simply include needed header files in yo
 
 The library is constituted in two main parts:
  - The EZL library: providing function macro to generate user-defined literals.
- - The EZL examples (situated in the src/examples subfolder): including an usage example of the EZL library. The header files thus provides user-defined literals for various domains (int literals, gmp literals, Qt string literals) and can be used in a project. Between, the inclusion of an example header file require the presence of the EZL library headers to compile. Please note that some examples  may require additionnal library (such as gmp for gmp_literals.hpp).
+ - The EZL examples (situated in the src/examples subfolder): including an usage example of the EZL library. The header files thus provides user-defined literals for various domains (int literals, gmp literals, Qt string literals) and can be used in a project. Between, the inclusion of an example header file require the presence of the EZL library headers to compile. Please note that some examples  may require additionnal library (such as GMP for gmp_literals.hpp).
 
 ## Usage
 
@@ -24,11 +24,11 @@ The following code show the generation and the usage of an UDL "_str" in which t
 #include <iostream>
 #include <string>
 
-#include "../src/ezl.hpp"
+#include "ezl/ezl.hpp"
 
 EZL_MAKE(std::string, str)
 
-#include "../src/ezl_undef.hpp"
+#include "ezl/ezl_undef.hpp"
 
 int main()
 {
@@ -39,7 +39,7 @@ int main()
 
 Here, the macro ```EZL_MAKE(type_, name_)``` is an alias on ```EZL_MAKE_STR_I(type_, name_)```, which create an UDL with ```inline``` specifier.
 
-```name_``` is prefixed with an underscore and the literal is cast in ```type_```. In the previous example, the function macro is expanded to :
+```name_``` is prefixed with an underscore and the literal is casted in ```type_```. In the previous example, the function macro is expanded to :
 
 ```c++
 inline auto operator "" _str([[maybe_unused]] const char* a, [[maybe_unused]] std::size_t b)
@@ -48,22 +48,22 @@ inline auto operator "" _str([[maybe_unused]] const char* a, [[maybe_unused]] st
 }
 ```
 
-The header *ezl_undef.hpp* contains ```#undef``` directives for all EZL preprocessor tokens to avoir polluting code with macros and can be used after any EZL include. Please note that the ezl*_undef.hpp headers also contain ```#undef``` directives for the header guards.
+The header *ezl_undef.hpp* contains ```#undef``` directives for all EZL preprocessor tokens to avoir polluting code with macros and can be used after any EZL include. *Please note that the ezl*_undef.hpp headers also contain ```#undef``` directives for the header guards*.
 
 ### Regular macros
 
 #### The literal types
 
-C++ offer 11 user-defined literal overload for each overloadable literal type. EZL covers each type and includes the type in the function name (due to the lack of macro overloading) :
+C++ offer 11 user-defined literal overload for each overloadable literal type. EZL covers each type and includes the type in the function name (due to the lack of typing and overloading in macros) :
 
  - Number literals :
-    - EZL_MAKE_INT\* ```(unsigned long long)```: Integer literals .
-    - EZL_MAKE_FLOAT\* ```(long double)```: Floating-point literals .
+    - EZL_MAKE_INT\* ```(unsigned long long)```: Integer literals.
+    - EZL_MAKE_FLOAT\* ```(long double)```: Floating-point literals.
     - EZL_MAKE_RAW\* ```(const char*)```: Raw string literals (fallback for number literals).
  - Character literals :
-    - EZL_MAKE_CHAR\* ```(char)```: character literals .
-    - EZL_MAKE_WCHAR\* ```(wchar_t)```: wide-character literals
-    - EZL_MAKE_CHAR16\* ```(char16_t)```: char16_t character literals .
+    - EZL_MAKE_CHAR\* ```(char)```: character literals.
+    - EZL_MAKE_WCHAR\* ```(wchar_t)```: wide-character literals.
+    - EZL_MAKE_CHAR16\* ```(char16_t)```: char16_t character literals.
     - EZL_MAKE_CHAR32\* ```(char32_t)```: char32_t character literals.
  - String literals :
     - EZL_MAKE_STR\* ```(const char*, std::size_t)```: string literal.
@@ -77,7 +77,7 @@ For each ```TYPE``` of those 11 types, 5 function macros are provided, described
 
 ```EZL_MAKE_TYPE(specifiers_, type_, name_)``` generates an UDL which convert the literal value to the specified ```type_```, using a function C-style cast. ```name_``` is prepended with an underscore ```_```.
 
-The ```specifier_``` correspond to the different UDL specifier allowed : ```inline```, ```constexpr```. Ending the specifiers list with ```const``` will make the return value ```const```.
+The ```specifier_``` corresponds to the different UDL specifier allowed : ```inline```, ```constexpr```. Ending the specifiers list with ```const``` will make the return value ```const```.
 
 Here is an example of expansion of the macro ```EZL_MAKE_CHAR32(constexpr, myChar32String, s32)``` (with indentation added for readability concerns):
 
@@ -89,8 +89,8 @@ constexpr auto operator "" _s32([[maybe_unused]] char32_t a)
 ```
 
 In addition, two helper function macros are provided :
- - ```EZL_MAKE_TYPE_I``` which correspond to ```EZL_MAKE_TYPE``` with ```inline``` specifier.
- - ```EZL_MAKE_TYPE_C``` which correspond to ```EZL_MAKE_TYPE``` with ```constexpr``` specifier.
+ - ```EZL_MAKE_TYPE_I``` which expands to ```EZL_MAKE_TYPE``` with ```inline``` specifier.
+ - ```EZL_MAKE_TYPE_C``` which expands to ```EZL_MAKE_TYPE``` with ```constexpr``` specifier.
 
 #### Body replacement macros
 
@@ -136,7 +136,7 @@ inline auto operator "" _rev([[maybe_unused]] const char* a, [[maybe_unused]] st
 }
 ```
 
-As you can see, the UDL argument (here ```const char*``` and ```std::size_t```) are nammed respectively ```a``` and ```b``` in case of two argument UDL (only one argument ```a``` for single argument UDL). The ```call_``` macro can use thoses argument for the UDL body.
+As you can see, the UDL argument (here ```const char*``` and ```std::size_t```) are nammed respectively ```a``` and ```b``` in case of two-arguments UDL (only one argument ```a``` for single-argument UDL). The ```call_``` macro can use thoses arguments for the UDL body.
 
 The ```EZL_MAKE_TYPE_CPL``` require the ```call_``` argument to be a function macro (i.e. that can be expanded though a call). The function macro ```EZL_MAKE_TYPE_CPL_D(specifiers_, name_, body_)``` use the same scheme but ```body_``` is simply a macro wich is replaced in place of the UDL body :
 
