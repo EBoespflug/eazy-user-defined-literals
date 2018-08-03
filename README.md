@@ -48,7 +48,7 @@ inline auto operator "" _str([[maybe_unused]] const char* a, [[maybe_unused]] st
 }
 ```
 
-The header *ezl_undef.hpp* contains ```#undef``` directives for all EZL preprocessor tokens to avoir polluting code with macros and can be used after any EZL include. *Please note that the ezl*_undef.hpp headers also contain ```#undef``` directives for the header guards*.
+The header *ezl_undef.hpp* contains ```#undef``` directives for all EZL preprocessor tokens to avoir polluting code with macros and can be used after any EZL include. *Please note that the ezl\*_undef.hpp headers also contain ```#undef``` directives for the header guards*.
 
 ### Regular macros
 
