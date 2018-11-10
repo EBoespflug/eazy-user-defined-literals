@@ -2,7 +2,7 @@
 
 ## Overview
 
-EaZy user-defined Literals (EZL), is a proprocessor macro library providing tools to easily generate User-Defined Literals (UDL).
+EaZy user-defined Literals (EZL), is a preprocessor macro library providing tools to easily generate User-Defined Literals (UDL).
 
 The library also provides (usable) examples of user-defined literals generation.
 
