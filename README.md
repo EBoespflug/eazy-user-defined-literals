@@ -54,7 +54,7 @@ The header *ezl_undef.hpp* contains ```#undef``` directives for all EZL preproce
 
 #### The literal types
 
-C++ offer 11 user-defined literal overload for each overloadable literal type. EZL covers each type and includes the type in the function name (due to the lack of typing and overloading in macros) :
+C++ offer 11 user-defined literal overloads for each overloadable literal type. EZL covers each type and includes the type in the function name (due to the lack of typing and overloading in macros) :
 
  - Number literals :
     - EZL_MAKE_INT\* ```(unsigned long long)```: Integer literals.
@@ -138,7 +138,7 @@ inline auto operator "" _rev([[maybe_unused]] const char* a, [[maybe_unused]] st
 
 As you can see, the UDL argument (here ```const char*``` and ```std::size_t```) are nammed respectively ```a``` and ```b``` in case of two-arguments UDL (only one argument ```a``` for single-argument UDL). The ```call_``` macro can use thoses arguments for the UDL body.
 
-The ```EZL_MAKE_TYPE_CPL``` require the ```call_``` argument to be a function macro (i.e. that can be expanded though a call). The function macro ```EZL_MAKE_TYPE_CPL_D(specifiers_, name_, body_)``` use the same scheme but ```body_``` is simply a macro wich is replaced in place of the UDL body :
+The function macro```EZL_MAKE_TYPE_CPL``` require the ```call_``` argument to be a function macro (i.e. that can be expanded though a call). ```EZL_MAKE_TYPE_CPL_D(specifiers_, name_, body_)``` use the same scheme but ```body_``` is simply a macro wich is replaced in place of the UDL body :
 
 ```c++
 #include "../src/ezl.hpp"
